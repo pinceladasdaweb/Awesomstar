@@ -32,7 +32,7 @@ The script depends on the following HTML markup:
 
 The values below are sent from the database for the JavaScript to update the status of the rating of each element:
 
-| data-*                             | Description                                                 |
+| Value                              | Description                                                 |
 | ---------------------------------- |:-----------------------------------------------------------:|
 | **data-rating-id**                 | The id of the element in the database.                      |
 | **data-rating-val**                | The average value of the vote.                              |
