@@ -1,0 +1,50 @@
+body {
+    background-color: #171b1e
+}
+
+.page-title,
+.page-subtitle {
+    color: #fff;
+    text-align: center;
+}
+
+.page-title {
+    font-size: 3em
+}
+
+.page-subtitle {
+    font-size: 1.4em;
+    margin-bottom: 30px
+}
+
+.movie-thumbnails {
+    margin-bottom: 30px;
+    min-height: 460px;
+}
+
+.movie-thumbnails img {
+    display: block;
+    margin: 0 auto;
+}
+
+.movie-thumbnails h2 {
+    color: #fff;
+    font-size: 1.2em;
+    padding: 0 15px;
+}
+
+.movie-thumbnails-gender,
+.movie-thumbnails-time {
+    color: #67717b;
+    display: inline-block;
+    padding: 0 15px;
+}
+
+.movie-thumbnails-time {
+    float: right;
+}
+
+.rating {
+    clear: both;
+    margin: 0 15px;
+}
