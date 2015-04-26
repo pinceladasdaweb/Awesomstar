@@ -10,15 +10,15 @@ CREATE TABLE IF NOT EXISTS `movies` (
 INSERT INTO `movies` (`id`, `poster`, `title`, `gender`, `time`) VALUES
 (1, 'imgs/paddington.jpg', 'Paddington', 'Comedy / Family', '1hr 35 min'),
 (2, 'imgs/the-imitation-game.jpg', 'The Imitation Game', 'Biography / Drama', '1hr 54 min'),
-(3, 'imgs/sanitarium.jpg', 'Sanitarium', 'Horror / Thriller', '1hr 48 min');
-(4, 'imgs/digging-up-the-marrow.jpg', 'Digging Up the Marrow', 'Biography / Drama', '1hr 38 min');
-(5, 'imgs/eat.jpg', 'Eat', 'Horror / Drama', '1hr 32 min');
-(6, 'imgs/exists.jpg', 'Exists', 'Horror', '1hr 21 min');
-(7, 'imgs/the-theatre-bizarre.jpg', 'The Theatre Bizarre', 'Horror', '1hr 54 min');
-(8, 'imgs/comet.jpg', 'Comet', 'Comedy / Drama', '1hr 31 min');
-(9, 'imgs/inherit-vice.jpg', 'Inherit Vice', 'Crime / Drama', '2hr 28 min');
-(10, 'imgs/the-taking-of-deborah-logan.jpg', 'The Taking of Deborah Logan', 'Horror / Thriller', '1hr 30 min');
-(11, 'imgs/blood-diner.jpg', 'Blood Diner', 'Comedy / Horror', '1hr 28 min');
+(3, 'imgs/sanitarium.jpg', 'Sanitarium', 'Horror / Thriller', '1hr 48 min'),
+(4, 'imgs/digging-up-the-marrow.jpg', 'Digging Up the Marrow', 'Biography / Drama', '1hr 38 min'),
+(5, 'imgs/eat.jpg', 'Eat', 'Horror / Drama', '1hr 32 min'),
+(6, 'imgs/exists.jpg', 'Exists', 'Horror', '1hr 21 min'),
+(7, 'imgs/the-theatre-bizarre.jpg', 'The Theatre Bizarre', 'Horror', '1hr 54 min'),
+(8, 'imgs/comet.jpg', 'Comet', 'Comedy / Drama', '1hr 31 min'),
+(9, 'imgs/inherit-vice.jpg', 'Inherit Vice', 'Crime / Drama', '2hr 28 min'),
+(10, 'imgs/the-taking-of-deborah-logan.jpg', 'The Taking of Deborah Logan', 'Horror / Thriller', '1hr 30 min'),
+(11, 'imgs/blood-diner.jpg', 'Blood Diner', 'Comedy / Horror', '1hr 28 min'),
 (12, 'imgs/under-the-electric-sky.jpg', 'Under the Electric Sky', 'Documentary / Music', '1hr 25 min');
 
 CREATE TABLE IF NOT EXISTS `movies_rating` (
