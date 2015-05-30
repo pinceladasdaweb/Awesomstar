@@ -30,13 +30,22 @@
 
     Awesomstar.prototype = {
         post: function (path, data, callback) {
-            var xhttp = new XMLHttpRequest();
+            var xhttp = new XMLHttpRequest(),
+                self  = this;
 
             xhttp.open('POST', path, true);
             xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
             xhttp.onreadystatechange = function () {
                 if (this.readyState === 4) {
-                    if (this.status > 400) {
+                    if (this.status >= 200 && this.status < 400) {
+                        var response = '';
+                        try {
+                            response = JSON.parse(this.responseText);
+                        } catch (err) {
+                            response = this.responseText;
+                        }
+                        callback.call(self, response);
+                    } else {
                         throw new Error(this.status + " - " + this.statusText);
                     }
                 }
@@ -53,7 +62,7 @@
                     if (encodedString.length > 0) {
                         encodedString += '&';
                     }
-                    encodedString += encodeURI(prop + '=' + obj[prop]);
+                    encodedString += encodeURIComponent(prop + '=' + obj[prop]);
                 }
             }
 
@@ -88,9 +97,12 @@
 
                     star.parentNode.setAttribute('data-rating-val', this.defaults.rating);
 
-                    this.post(this.endpoint, this.param(this.defaults));
-                }.bind(this));
+                    this.post(this.endpoint, this.param(this.defaults), this.feedback);
+                }.bind(this), false);
             }.bind(this));
+        },
+        feedback: function (data) {
+            // Callback is here
         }
     };
 
