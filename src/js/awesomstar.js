@@ -1,6 +1,7 @@
-/*jslint browser: true*/
+/*jslint browser: true, debug: true*/
 /*global define, module, exports*/
 (function (root, factory) {
+    'use strict';
     if (typeof define === 'function' && define.amd) {
         define([], factory);
     } else if (typeof exports === 'object') {
@@ -12,10 +13,6 @@
     'use strict';
 
     var Awesomstar = function () {
-        if (!this || !(this instanceof Awesomstar)) {
-            return new Awesomstar();
-        }
-
         this.rating   = document.querySelectorAll('.rating');
         this.stars    = document.querySelectorAll('.star');
         this.endpoint = '../api/rate.php';
@@ -24,16 +21,13 @@
         this.vote();
     };
 
-    Awesomstar.init = function () {
-        return new Awesomstar();
-    };
-
     Awesomstar.prototype = {
         post: function (path, data, callback) {
             var xhttp = new XMLHttpRequest(),
                 self  = this;
 
             xhttp.open('POST', path, true);
+            xhttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
             xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
             xhttp.onreadystatechange = function () {
                 if (this.readyState === 4) {
@@ -53,20 +47,12 @@
             xhttp.send(data);
             xhttp = null;
         },
-        param: function (obj) {
-            var encodedString = '',
-                prop;
+        param: function (data) {
+            var params = typeof data === 'string' ? data : Object.keys(data).map(
+                function (k) { return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]); }
+            ).join('&');
 
-            for (prop in obj) {
-                if (obj.hasOwnProperty(prop)) {
-                    if (encodedString.length > 0) {
-                        encodedString += '&';
-                    }
-                    encodedString += encodeURIComponent(prop + '=' + obj[prop]);
-                }
-            }
-
-            return encodedString;
+            return params;
         },
         each: function (els, callback) {
             var i = 0, max = els.length;
