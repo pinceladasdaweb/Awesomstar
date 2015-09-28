@@ -50,7 +50,7 @@
 
     <script src="../build/js/awesomstar.min.js" type="text/javascript"></script>
     <script>
-        Awesomstar.init();
+        new Awesomstar();
     </script>
     </body>
 </html>
