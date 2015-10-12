@@ -12,9 +12,14 @@
 }(this, function () {
     'use strict';
 
-    var Awesomstar = function () {
+    var Awesomstar = function (options) {
+        if (!options) {
+            options = {};
+        }
+
         this.rating   = document.querySelectorAll('.rating');
         this.stars    = document.querySelectorAll('.star');
+        this.callback = options.callback || function () {};
         this.endpoint = '../api/rate.php';
         this.defaults = {};
 
@@ -23,8 +28,7 @@
 
     Awesomstar.prototype = {
         post: function (path, data, callback) {
-            var xhttp = new XMLHttpRequest(),
-                self  = this;
+            var xhttp = new XMLHttpRequest();
 
             xhttp.open('POST', path, true);
             xhttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
@@ -38,7 +42,7 @@
                         } catch (err) {
                             response = this.responseText;
                         }
-                        callback.call(self, response);
+                        callback.call(window, response);
                     } else {
                         throw new Error(this.status + " - " + this.statusText);
                     }
@@ -83,12 +87,9 @@
 
                     star.parentNode.setAttribute('data-rating-val', this.defaults.rating);
 
-                    this.post(this.endpoint, this.param(this.defaults), this.feedback);
+                    this.post(this.endpoint, this.param(this.defaults), this.callback);
                 }.bind(this), false);
             }.bind(this));
-        },
-        feedback: function (data) {
-            // Callback is here
         }
     };
 
