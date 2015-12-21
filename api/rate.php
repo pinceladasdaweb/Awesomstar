@@ -1,6 +1,8 @@
 <?php
 require 'Database.class.php';
 
+$data = array();
+
 if (!empty($_POST)) {
     $movie = (int)$_POST['id'];
     $rating = (int)$_POST['rating'];
@@ -17,23 +19,19 @@ if (!empty($_POST)) {
             $q = $pdo->prepare($sql);
             $q->execute(array($movie, $rating));
 
-            $status  = 'success';
-            $message = 'Amazing, your vote has been successfully recorded.';
+            $data['status']  = 'success';
+            $data['message'] = 'Amazing, your vote has been successfully recorded.';
+            $data['movieId'] = $movie;
         } else {
-            $status  = 'error';
-            $message = 'Too bad, this film does not exist here.';
+            $data['status']  = 'error';
+            $data['message'] = 'Too bad, this film does not exist here.';
         }
 
         Database::disconnect();
     } else {
-        $status  = 'error';
-        $message = 'Only allowed votes of 1 to 5';
+        $data['status']  = 'error';
+        $data['message'] = 'Only allowed votes of 1 to 5';
     }
-
-    $data = array(
-        'status'  => $status,
-        'message' => $message
-    );
 
     echo json_encode($data);
 }
