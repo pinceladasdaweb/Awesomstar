@@ -51,6 +51,7 @@
     <script src="../build/js/awesomstar.min.js" type="text/javascript"></script>
     <script>
         new Awesomstar({
+            endpoint: '../api/rate.php',
             callback: function (data) {
                 console.log(data);
             }
