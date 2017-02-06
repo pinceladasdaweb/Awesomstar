@@ -16,7 +16,9 @@ Add the following javascript in your page:
 ```html
 <script src="path/to/awesomstar.min.js"></script>
 <script>
-    new Awesomstar();
+    new Awesomstar({
+        endpoint: 'your_api_endpoint_here'
+    });
 </script>
 ```
 
@@ -51,6 +53,7 @@ After the user clicks the value of the desired rating, is sent via POST to the b
 ```html
 <script>
     new Awesomstar({
+        endpoint: 'your_api_endpoint_here',
         callback: function (data) {
             console.log(data);
         }
@@ -62,7 +65,7 @@ An error message or success is returned, providing feedback to the user.
 
 ## Browser support
 
-![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/internet-explorer/internet-explorer_48x48.png) | ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/firefox/firefox_48x48.png) | ![Opera](https://raw.githubusercontent.com/alrra/browser-logos/master/opera/opera_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/safari/safari_48x48.png)
+![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png) | ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![Opera](https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
 --- | --- | --- | --- | --- |
 IE 9+ ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ |
 
