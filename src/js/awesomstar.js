@@ -14,14 +14,20 @@
 
     var Awesomstar = function (options) {
         if (!options) {
-            options = {};
+            console.log('%c Missing options', 'background: red; color: white');
+            return;
         }
 
         this.rating   = document.querySelectorAll('.rating');
         this.stars    = document.querySelectorAll('.star');
         this.callback = options.callback || function () {};
-        this.endpoint = '../api/rate.php';
+        this.endpoint = options.endpoint;
         this.defaults = {};
+
+        if (!this.endpoint) {
+            console.warn('Awesomstar: Please pass a valid endpoint')
+            return;
+        }
 
         this.vote();
     };
